@@ -7,7 +7,7 @@ def removepunc(request):
     return HttpResponse ('''<h1> remove punc </h1> <a href="http://127.0.0.1:8000/"> <button> backhome page</button> </a>''')
 
 def capitalizefirst(request):
-    return HttpResponse ("<h1> capitalize first </h1>")
+    return HttpResponse ('''<h1> capitalize first</h1> <a href="http://127.0.0.1:8000/"> <button> capitalize first</button> </a>''')
 
 def removespace(request):
     return HttpResponse ("<h1> remove space </h1>")

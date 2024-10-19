@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.info, name='info')
+    path('',views.info, name='info'),
+    path('removepunc',views.removepunc, name='removepunc'),
+    path('capitalizefirst',views.capitalizefirst, name='capitalizefirst'),
+    path('removespace',views.removespace, name='removespace'),
+    path('charcounter',views.charcounter, name='charcounter'),
+    path('newlineremove',views.newlineremove, name='newlineremove')
+
 ]

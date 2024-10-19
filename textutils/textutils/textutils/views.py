@@ -1,6 +1,14 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 def info(request):
-    return HttpResponse('''<h1> My name is Abdul Rehman </h1><br><h2>learn from</h2> <a href="https://www.youtube.com/watch?v=AepgWsROO4k">learn more</a>''')
+    # return HttpResponse('''<h1> My name is Abdul Rehman </h1><br><h2>learn from</h2> <a href="https://www.youtube.com/watch?v=AepgWsROO4k">learn more</a>''')
+    info = {
+        'name':'Abdul Rehman',
+        'course':'html',
+        'link':'https://www.youtube.com/watch?v=AepgWsROO4k'
+    }
+  
+    return render(request, 'index.html',info)
 
 #pipeline
 def removepunc(request):

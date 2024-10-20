@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tempplate is workingt</title>
 </head>
-<body>
-    this is cute template
-    <a href="https://www.freecodecamp.org/news/basic-html5-template-boilerplate-code-example/"> html boileroprate</a>
-    <br>
-    <h2> my name is {{name}} and im learn {{course}} from {{link}}</h2>
-    
-</body>
+<body >
+    <h1>Welcome to the Text Analyzer</h1>
+    <br/>
+    <h2> Enter your text below :</h2>
+    <form action='/analyze' method='get'>
+        <textarea name='text' style="width: 1202px; height: 235px;"></textarea><br/>
+        <input type="checkbox" name="removepunc"> Remove punc
+    <button type='submit'> Analyze text</button>
+</form>
+    </body>
 </html>

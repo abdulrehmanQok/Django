@@ -10,8 +10,13 @@
     <br/>
     <h2> Enter your text below :</h2>
     <form action='/analyze' method='get'>
-        <textarea name='text' style="width: 1202px; height: 235px;"></textarea><br/>
-        <input type="checkbox" name="removepunc"> Remove punc
+        <textarea name='text' style="width: 500px; height: 235px;"></textarea><br/>
+        <input type="checkbox" name="removepunc"> Remove punc <br/>
+        <input type="checkbox" name="fullcaps"> UPPER CASE <br/>
+        <input type="checkbox" name="newlineremove"> New Line Remove <br/>
+        <input type="checkbox" name="spaceremover"> Remove Space <br/>
+
+
     <button type='submit'> Analyze text</button>
 </form>
     </body>

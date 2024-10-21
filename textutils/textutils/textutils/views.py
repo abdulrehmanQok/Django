@@ -15,13 +15,15 @@ def analyze(request):
     # Use request.GET.get instead of request.Get.get
     djtext = request.GET.get('text', 'default')
     removepunc = request.GET.get('removepunc', 'off')
-    
+    fullcaps=request.GET.get('fullcaps','off')
+    newlineremove=request.GET.get('newlineremove','off')
+    spaceremover=request.GET.get('spaceremover','off')
     # Punctuation symbols to be removed
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     
     analyzed = ""  # Initialize as an empty string instead of having a space
     
-    if removepunc == 'on':  # Make sure this check is performed
+    if removepunc == "on":  # Make sure this check is performed
         for char in djtext:
             if char not in punctuations:
                 analyzed += char
@@ -31,8 +33,31 @@ def analyze(request):
         return render(request, 'analyze.html', params)
     
     # Handle the case when 'removepunc' is not selected (optional)
+    elif fullcaps=="on":
+        analyzed=""
+        for char in djtext:
+            analyzed = analyzed + char.upper()
+        params = {'purpose': 'Change to Upper Case', 'analyzed_text': analyzed}
+        
+        return render(request, 'analyze.html', params)
+    elif newlineremove=="on":
+        analyzed=""
+        for char in djtext:
+            if char!= "\n":
+                analyzed = analyzed + char
+        params = {'purpose': 'Remove New Line', 'analyzed_text': analyzed}
+        
+        return render(request, 'analyze.html', params)
+    elif spaceremover=="on":
+        analyzed=""
+        for index, char in enumerate(djtext):
+            if not (djtext[index]==" " and djtext[index+1]=="  "):
+                analyzed = analyzed + char
+        params = {'purpose': 'Remove Extra Space', 'analyzed_text': analyzed}
+        
+        return render(request, 'analyze.html', params)
     else:
-        return HttpResponse("Error: Remove punctuation option is not selected.")
+        return HttpResponse("Error")
 
 
 
